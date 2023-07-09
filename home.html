@@ -1,0 +1,181 @@
+<html>
+    <head>
+    </head>
+    <style>
+        .a{
+            position: relative;
+            background-size:cover;
+            width:100%;
+            opacity: 0.7;
+            height:100%;
+            background-image: url("background.jpg");
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+        .main{
+            position: absolute;
+            left: 60%;
+            right:10%;
+            top:20%;
+            bottom: 40%;
+            background-position: right;
+            background:white;
+            width: 350px;
+            height: 370px;
+            text-align: center;
+            padding: 20px 30px 20px;
+            
+        }
+        
+        .heading{
+            text-align: center;
+            color: blue;
+            position: relative;
+            margin-bottom: 30px;
+            font-size: 20px;
+            
+        }
+        .heading h1::after{
+            content:'';
+            width: 30px;
+            height: 4px;
+            border-radius: 0px;
+            background-color: blue;
+            
+        }
+        .user{
+            background-color:gainsboro;
+            display: flex;
+            margin: 20px 0;
+            border-radius: 3px;
+            align-items: center;
+           
+        }
+        input{
+            width: 100%;
+            background: transparent;
+            border:0;
+            padding: 10px 10px;
+            
+            
+        }
+        .pass{
+            background-color:gainsboro;
+            display: flex;
+            margin: 20px 0;
+            border-radius: 3px;
+            align-items: center;
+          
+        }
+        .mobile{
+            background-color:gainsboro;
+            display: flex;
+            margin: 20px 0;
+            border-radius: 3px;
+            align-items: center;
+           
+           
+        }
+        .user i{
+            margin-left: 15px;
+            max-height: 75px;
+            transition: max-height 0.5s;
+            overflow:hidden;
+        }
+        .pass i{
+            margin-left: 15px;
+        }
+        .mobile i{
+            margin-left: 15px;
+        } 
+        form p{
+            text-align: left;
+        }
+        form p a{
+            text-decoration: none;
+        }
+        .btt{
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+        .btt button{
+            flex-basis: 45%;
+            border-radius: 15px;
+            background-color: blue;
+            color: white;
+            height: 30px;
+            cursor: pointer;
+        }
+        .btt button.disable{
+            background:gainsboro;
+            color:black;
+        }
+        #namefeild{
+            max-height: 75px;
+            transition: max-height 0.5s;
+            overflow:hidden;
+        }
+    </style>
+    <script src="https://kit.fontawesome.com/160f12c7d4.js" crossorigin="anonymous">
+    </script>
+    <body>
+        <div class="a">
+        <div class="main">
+            <div class="heading">
+            <h1 id="change">Sign up</h1>
+            </div>
+            <form>
+        <div class="form_main">
+            <div class="user"id="namefeild">
+                <i class="fa-solid fa-user"></i>
+                <input type="text"placeholder="name" required>
+            </div>
+            <div class="pass">
+                <i class="fa-solid fa-envelope"></i>
+                <input type="email"placeholder="email" required>
+            </div>
+            <div class="mobile">
+                <i class="fa-solid fa-lock"></i>
+                <input type="password"placeholder="Password" required>
+            </div>
+            <p>Forgot Password<a href="#"> Click Here!</a></p>
+            <div class="btt">
+                <button type="button"id="signupBtn">Sign up</button>
+                <button type="button"id="signinBtn" class="disable">Sign in</button>        
+            </div>
+        </div>
+        </div>
+        </div>
+            </form>
+        <script>
+        let signupBtn=document.getElementById("signupBtn");
+        let signinBtn=document.getElementById("signinBtn");
+        let namefeild=document.getElementById("namefeild");
+        let change=document.getElementById("change");
+        
+        signinBtn.onclick=function(){
+            namefeild.style.maxHeight="0"
+            change.innerHTML="Sign In";
+            signupBtn.classList.add("disable");
+            signinBtn.classList.remove("disable");
+            document.getElementById("signinBtn").addEventListener("click", myFunction);  
+            function myFunction() {  
+            window.location.href="mysite.html";  
+      }
+        }
+        signupBtn.onclick=function(){
+            namefeild.style.maxHeight="60px"
+            change.innerHTML="Sign Up";
+            signupBtn.classList.remove("disable");
+            signinBtn.classList.add("disable");
+            document.getElementById("signupBtn").addEventListener("click", myFunction);  
+            function myFunction() {  
+            window.location.href="mysite.html";  
+        }
+    }
+        </script>
+        <!--<input type="submit" id="signinBtn"/>
+        <input type="submit" id="signupBtn"/>--> 
+    </body>
+</html>
